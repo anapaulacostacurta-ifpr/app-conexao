@@ -1,8 +1,8 @@
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js';
 import {getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js';
-import {getFirestore,doc,collection,getDoc,getDocs,setDoc,updateDoc,deleteDoc,query,where,orderBy,limit,onSnapshot,writeBatch,serverTimestamp,Timestamp,arrayUnion} from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js';
+import {getFirestore,doc,collection,getDoc,getDocs,setDoc,updateDoc,deleteDoc,query,where,orderBy,limit,onSnapshot,writeBatch,serverTimestamp,Timestamp,arrayUnion,arrayRemove} from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js';
 const c=await fetch('./firebase-config.json').then(r=>r.json());const app=initializeApp(c.firebase);export const auth=getAuth(app),db=getFirestore(app);
-export {onAuthStateChanged,serverTimestamp,Timestamp,arrayUnion};
+export {onAuthStateChanged,serverTimestamp,Timestamp,arrayUnion,arrayRemove};
 export const login=()=>signInWithPopup(auth,new GoogleAuthProvider());export const logout=()=>signOut(auth);
 export async function read(path){const s=await getDoc(doc(db,path));return s.exists()?{...s.data(),id:s.id}:null;}
 export async function list(path,filters=[]){const s=await getDocs(query(collection(db,path),...filters.map(([f,op,v])=>where(f,op,v))));return s.docs.map(d=>({...d.data(),id:d.id}));}
