@@ -1,0 +1,2 @@
+export function institutionKey(name){const clean=String(name||'').normalize('NFC').trim().replace(/\s+/g,' ');if(!clean||clean.length>120)throw Error('Informe uma instituição com até 120 caracteres.');return encodeURIComponent(clean.toLocaleLowerCase('pt-BR'));}
+export function campusName(value){const clean=String(value||'').normalize('NFC').trim().replace(/\s+/g,' ');if(!clean||clean.length>120)throw Error('Informe um campus com até 120 caracteres.');return clean;}
