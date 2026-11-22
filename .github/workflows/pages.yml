@@ -1,0 +1,56 @@
+name: Publicar plataforma no GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Obter código
+        uses: actions/checkout@v6
+      - name: Validar JavaScript e testes locais
+        run: |
+          node --check dist/app.js
+          node --check dist/roster.js
+          node --check dist/question-types.js
+          node --check functions/question-types.js
+          node --check functions/index.js
+          node --check functions/access.js
+          node --check functions/imports.js
+          node --check functions/commerce.js
+          node --check functions/commerce-policy.js
+          node --check dist/commerce-policy.js
+          node --check functions/plans.js
+          node --check functions/plan-policy.js
+          node --check functions/live.js
+          node --check functions/live-model.js
+          node --check functions/learning.js
+          node --check functions/academic.js
+          node --check functions/backup.js
+          node --check functions/backup-codec.js
+          node --check scripts/database-backup.mjs
+          node --check functions/year-close.js
+          node --check functions/demo-leads.js
+          node --check functions/letterheads.js
+          node --check dist/warning-pdf.js
+          node --test functions/*.test.js
+      - name: Configurar Pages
+        uses: actions/configure-pages@v5
+      - name: Enviar somente a interface pública
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4

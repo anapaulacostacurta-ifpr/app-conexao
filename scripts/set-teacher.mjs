@@ -1,0 +1,1 @@
+console.error('O perfil docente agora é aprovado pelo administrador no painel. Uma claim teacher isolada não concede acesso. Utilize scripts/set-admin.mjs apenas para configurar o primeiro administrador.');process.exit(1);
