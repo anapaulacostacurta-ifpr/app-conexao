@@ -1,0 +1,59 @@
+{
+  "title": "Redes de computadores",
+  "subject": "Redes",
+  "date": "",
+  "grading": "concept",
+  "scale": 100,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "choice",
+      "points": 2,
+      "prompt": "Half-duplex permite envio e recebimento simultâneos?",
+      "options": [
+        "Sim",
+        "Não",
+        "Não sei"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "q2",
+      "type": "multiple",
+      "points": 3,
+      "prompt": "Selecione as afirmações corretas.",
+      "options": [
+        "Switch aprende pelo MAC de origem.",
+        "ARP associa IPv4 e MAC na rede local.",
+        "Hub consulta tabela MAC."
+      ],
+      "corrects": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "blanks",
+      "points": 2,
+      "prompt": "No {{1}}, enviar e receber podem ocorrer ao mesmo tempo.",
+      "ignoreCase": true,
+      "ignoreAccents": true,
+      "blanks": [
+        {
+          "accepted": [
+            "full-duplex",
+            "full duplex"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "open",
+      "points": 3,
+      "prompt": "Explique a diferença entre hub e switch.",
+      "responseFormat": "text"
+    }
+  ]
+}

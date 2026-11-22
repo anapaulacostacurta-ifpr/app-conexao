@@ -1,3 +1,0 @@
-export const DOCX_MIME='application/vnd.openxmlformats-officedocument.wordprocessingml.document';export const LETTERHEAD_LIMIT=4*1024*1024;
-export function letterheadExtension(b,m){if(m==='application/pdf'&&b.subarray(0,5).toString()==='%PDF-')return'pdf';if(m==='image/png'&&b.subarray(0,8).toString('hex')==='89504e470d0a1a0a')return'png';if(m==='image/jpeg'&&b[0]===255&&b[1]===216&&b[2]===255)return'jpg';if(m===DOCX_MIME&&b[0]===80&&b[1]===75&&b[2]===3&&b[3]===4&&b.includes(Buffer.from('word/document.xml')))return'docx';return null;}
-export function validLayout(l){return !!l&&['top','bottom','left','right'].every(k=>Number.isFinite(l[k])&&l[k]>=5&&l[k]<=100)&&l.top+l.bottom<210&&l.left+l.right<150&&l.fontSize>=8&&l.fontSize<=18;}

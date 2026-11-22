@@ -1,16 +1,5 @@
 node_modules/
-functions/node_modules/
 .firebase/
 *.log
-.env
-.env.*
-*service-account*.json
-*serviceAccount*.json
-*credentials*.json
-Class data.json
-takeout*.zip
-upload/
-imports/
-
+.env*
 backups/
-backup-firestore-*.json

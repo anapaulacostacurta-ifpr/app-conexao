@@ -1,1 +1,11 @@
-{"enabled":false,"region":"southamerica-east1","firebase":{"apiKey":"PREENCHER","authDomain":"SEU-PROJETO.firebaseapp.com","projectId":"SEU-PROJETO","appId":"PREENCHER"}}
+{
+  "enabled": true,
+  "firebase": {
+    "apiKey": "AIzaSyCeqw5tGHTYzc1N7lJEqh7wjafI6lue2jU",
+    "authDomain": "app-conexao-783a4.firebaseapp.com",
+    "projectId": "app-conexao-783a4",
+    "messagingSenderId": "383311429620",
+    "appId": "1:383311429620:web:21d4cd4b4108ad08de43a1"
+  },
+  "backend": "firestore-direct"
+}

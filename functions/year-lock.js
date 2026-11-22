@@ -1,2 +1,0 @@
-import{getFirestore}from'firebase-admin/firestore';import{HttpsError}from'firebase-functions/v2/https';
-export async function checkYearLock(courseId,examId){for(const key of[courseId?'courses_'+courseId:null,examId?'exams_'+examId:null].filter(Boolean)){const s=await getFirestore().doc(`academicLocks/${key}`).get();if(s.data()?.status&&s.data().status!=='open')throw new HttpsError('failed-precondition','Este item está em fechamento anual ou já foi encerrado.');}}
